@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missile Command – Remake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-invader" viewBox="0 0 11 8"><path d="M2 0h1v1h-1zM8 0h1v1h-1zM3 1h1v1h-1zM7 1h1v1h-1zM2 2h7v1h-7zM1 3h2v1h-2zM4 3h3v1h-3zM8 3h2v1h-2zM0 4h11v1h-11zM0 5h1v1h-1zM2 5h7v1h-7zM10 5h1v1h-1zM0 6h1v1h-1zM2 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM3 7h2v1h-2zM6 7h2v1h-2z" fill="currentColor"/></symbol><symbol id="i-gamepad" viewBox="0 0 12 8"><path d="M2 0h8v1h-8zM1 1h10v1h-10zM0 2h3v1h-3zM4 2h5v1h-5zM10 2h2v1h-2zM0 3h2v1h-2zM5 3h3v1h-3zM9 3h1v1h-1zM11 3h1v1h-1zM0 4h3v1h-3zM4 4h5v1h-5zM10 4h2v1h-2zM0 5h12v1h-12zM1 6h3v1h-3zM8 6h3v1h-3zM2 7h2v1h-2zM8 7h2v1h-2z" fill="currentColor"/></symbol><symbol id="i-brush" viewBox="0 0 11 9"><path d="M8 0h3v1h-3zM7 1h4v1h-4zM6 2h4v1h-4zM5 3h4v1h-4zM4 4h4v1h-4zM3 5h4v1h-4zM1 6h4v1h-4zM0 7h4v1h-4zM0 8h3v1h-3z" fill="currentColor"/></symbol><symbol id="i-folder" viewBox="0 0 12 8"><path d="M1 0h4v1h-4zM0 1h12v1h-12zM0 2h12v1h-12zM0 3h12v1h-12zM0 4h12v1h-12zM0 5h12v1h-12zM0 6h12v1h-12zM0 7h12v1h-12z" fill="currentColor"/></symbol><symbol id="i-robot" viewBox="0 0 11 10"><path d="M5 0h1v1h-1zM2 1h7v1h-7zM1 2h9v1h-9zM1 3h2v1h-2zM4 3h3v1h-3zM8 3h2v1h-2zM1 4h9v1h-9zM1 5h2v1h-2zM8 5h2v1h-2zM2 6h7v1h-7zM1 7h1v1h-1zM3 7h5v1h-5zM9 7h1v1h-1zM1 8h1v1h-1zM3 8h5v1h-5zM9 8h1v1h-1zM3 9h2v1h-2zM6 9h2v1h-2z" fill="currentColor"/></symbol><symbol id="i-rocket" viewBox="0 0 7 10"><path d="M3 0h1v1h-1zM2 1h3v1h-3zM2 2h3v1h-3zM2 3h1v1h-1zM4 3h1v1h-1zM2 4h3v1h-3zM1 5h5v1h-5zM1 6h5v1h-5zM0 7h2v1h-2zM3 7h1v1h-1zM5 7h2v1h-2zM0 8h1v1h-1zM6 8h1v1h-1zM3 9h1v1h-1z" fill="currentColor"/></symbol><symbol id="i-asteroid" viewBox="0 0 9 8"><path d="M2 0h5v1h-5zM1 1h7v1h-7zM0 2h4v1h-4zM5 2h4v1h-4zM0 3h4v1h-4zM6 3h3v1h-3zM0 4h9v1h-9zM0 5h3v1h-3zM4 5h5v1h-5zM1 6h7v1h-7zM2 7h5v1h-5z" fill="currentColor"/></symbol><symbol id="i-missile" viewBox="0 0 5 11"><path d="M2 0h1v1h-1zM1 1h3v1h-3zM1 2h3v1h-3zM1 3h1v1h-1zM3 3h1v1h-1zM1 4h3v1h-3zM1 5h3v1h-3zM1 6h3v1h-3zM1 7h3v1h-3zM0 8h5v1h-5zM0 9h1v1h-1zM2 9h1v1h-1zM4 9h1v1h-1zM2 10h1v1h-1z" fill="currentColor"/></symbol><symbol id="i-city" viewBox="0 0 12 7"><path d="M2 0h1v1h-1zM8 0h1v1h-1zM2 1h1v1h-1zM5 1h1v1h-1zM8 1h1v1h-1zM10 1h1v1h-1zM1 2h2v1h-2zM5 2h1v1h-1zM7 2h2v1h-2zM10 2h1v1h-1zM1 3h2v1h-2zM4 3h2v1h-2zM7 3h2v1h-2zM10 3h2v1h-2zM1 4h2v1h-2zM4 4h2v1h-2zM7 4h2v1h-2zM10 4h2v1h-2zM0 5h12v1h-12zM0 6h12v1h-12z" fill="currentColor"/></symbol><symbol id="i-star" viewBox="0 0 9 9"><path d="M4 0h1v1h-1zM4 1h1v1h-1zM3 2h3v1h-3zM0 3h9v1h-9zM1 4h7v1h-7zM2 5h5v1h-5zM2 6h2v1h-2zM5 6h2v1h-2zM1 7h2v1h-2zM6 7h2v1h-2zM1 8h1v1h-1zM7 8h1v1h-1z" fill="currentColor"/></symbol><symbol id="i-search" viewBox="0 0 10 10"><path d="M2 0h4v1h-4zM1 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM7 2h1v1h-1zM0 3h1v1h-1zM7 3h1v1h-1zM0 4h1v1h-1zM7 4h1v1h-1zM1 5h1v1h-1zM6 5h1v1h-1zM2 6h4v1h-4zM6 7h2v1h-2zM7 8h2v1h-2zM8 9h2v1h-2z" fill="currentColor"/></symbol><symbol id="i-person" viewBox="0 0 8 7"><path d="M2 0h4v1h-4zM2 1h4v1h-4zM2 2h4v1h-4zM3 3h2v1h-2zM1 4h6v1h-6zM0 5h8v1h-8zM0 6h8v1h-8z" fill="currentColor"/></symbol><symbol id="i-people" viewBox="0 0 10 7"><path d="M1 0h3v1h-3zM6 0h3v1h-3zM1 1h3v1h-3zM6 1h3v1h-3zM1 2h3v1h-3zM6 2h3v1h-3zM2 3h1v1h-1zM7 3h1v1h-1zM0 4h4v1h-4zM6 4h4v1h-4zM0 5h4v1h-4zM6 5h4v1h-4zM0 6h4v1h-4zM6 6h4v1h-4z" fill="currentColor"/></symbol><symbol id="i-book" viewBox="0 0 14 8"><path d="M1 0h5v1h-5zM8 0h5v1h-5zM0 1h1v1h-1zM6 1h2v1h-2zM13 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h2v1h-2zM9 2h3v1h-3zM13 2h1v1h-1zM0 3h1v1h-1zM6 3h2v1h-2zM13 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h2v1h-2zM9 4h3v1h-3zM13 4h1v1h-1zM0 5h1v1h-1zM6 5h2v1h-2zM13 5h1v1h-1zM0 6h1v1h-1zM6 6h2v1h-2zM13 6h1v1h-1zM1 7h12v1h-12z" fill="currentColor"/></symbol><symbol id="i-question" viewBox="0 0 8 10"><path d="M1 0h6v1h-6zM0 1h2v1h-2zM6 1h2v1h-2zM6 2h2v1h-2zM5 3h2v1h-2zM3 4h3v1h-3zM3 5h2v1h-2zM3 6h2v1h-2zM3 8h2v1h-2zM3 9h2v1h-2z" fill="currentColor"/></symbol><symbol id="i-chat" viewBox="0 0 11 7"><path d="M1 0h9v1h-9zM0 1h1v1h-1zM10 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM5 2h1v1h-1zM8 2h1v1h-1zM10 2h1v1h-1zM0 3h1v1h-1zM10 3h1v1h-1zM1 4h4v1h-4zM6 4h5v1h-5zM5 5h2v1h-2zM5 6h1v1h-1z" fill="currentColor"/></symbol><symbol id="i-trophy" viewBox="0 0 11 11"><path d="M1 0h9v1h-9zM0 1h2v1h-2zM3 1h5v1h-5zM9 1h2v1h-2zM0 2h2v1h-2zM3 2h5v1h-5zM9 2h2v1h-2zM0 3h2v1h-2zM3 3h5v1h-5zM9 3h2v1h-2zM1 4h2v1h-2zM4 4h3v1h-3zM8 4h2v1h-2zM2 5h7v1h-7zM3 6h5v1h-5zM4 7h3v1h-3zM4 8h3v1h-3zM3 9h5v1h-5zM2 10h7v1h-7z" fill="currentColor"/></symbol><symbol id="i-joystick" viewBox="0 0 8 11"><path d="M3 0h2v1h-2zM2 1h4v1h-4zM2 2h4v1h-4zM3 3h2v1h-2zM3 4h2v1h-2zM3 5h2v1h-2zM3 6h2v1h-2zM0 7h8v1h-8zM0 8h8v1h-8zM0 9h8v1h-8zM0 10h8v1h-8z" fill="currentColor"/></symbol><symbol id="i-monitor" viewBox="0 0 11 11"><path d="M0 0h11v1h-11zM0 1h1v1h-1zM10 1h1v1h-1zM0 2h1v1h-1zM2 2h2v1h-2zM10 2h1v1h-1zM0 3h1v1h-1zM2 3h4v1h-4zM10 3h1v1h-1zM0 4h1v1h-1zM2 4h6v1h-6zM10 4h1v1h-1zM0 5h1v1h-1zM2 5h4v1h-4zM10 5h1v1h-1zM0 6h1v1h-1zM2 6h2v1h-2zM10 6h1v1h-1zM0 7h1v1h-1zM10 7h1v1h-1zM0 8h11v1h-11zM4 9h3v1h-3zM2 10h7v1h-7z" fill="currentColor"/></symbol><symbol id="i-code" viewBox="0 0 15 7"><path d="M3 0h1v1h-1zM11 0h1v1h-1zM2 1h1v1h-1zM8 1h1v1h-1zM12 1h1v1h-1zM1 2h1v1h-1zM7 2h1v1h-1zM13 2h1v1h-1zM0 3h1v1h-1zM6 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM5 4h1v1h-1zM13 4h1v1h-1zM2 5h1v1h-1zM4 5h1v1h-1zM12 5h1v1h-1zM3 6h1v1h-1zM11 6h1v1h-1z" fill="currentColor"/></symbol><symbol id="i-wireframe" viewBox="0 0 11 9"><path d="M0 0h11v1h-11zM0 1h1v1h-1zM10 1h1v1h-1zM0 2h11v1h-11zM0 3h1v1h-1zM2 3h3v1h-3zM10 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h3v1h-3zM10 4h1v1h-1zM0 5h1v1h-1zM2 5h3v1h-3zM10 5h1v1h-1zM0 6h1v1h-1zM2 6h3v1h-3zM6 6h3v1h-3zM10 6h1v1h-1zM0 7h1v1h-1zM10 7h1v1h-1zM0 8h11v1h-11z" fill="currentColor"/></symbol><symbol id="i-cursor" viewBox="0 0 9 12"><path d="M0 0h1v1h-1zM0 1h2v1h-2zM0 2h3v1h-3zM0 3h4v1h-4zM0 4h5v1h-5zM0 5h6v1h-6zM0 6h7v1h-7zM0 7h8v1h-8zM0 8h5v1h-5zM0 9h2v1h-2zM3 9h2v1h-2zM0 10h1v1h-1zM4 10h2v1h-2zM5 11h2v1h-2z" fill="currentColor"/></symbol><symbol id="i-shield" viewBox="0 0 9 10"><path d="M0 0h9v1h-9zM0 1h9v1h-9zM0 2h9v1h-9zM0 3h9v1h-9zM0 4h9v1h-9zM1 5h7v1h-7zM1 6h7v1h-7zM2 7h5v1h-5zM3 8h3v1h-3zM4 9h1v1h-1z" fill="currentColor"/></symbol><symbol id="i-gear" viewBox="0 0 9 7"><path d="M2 0h1v1h-1zM4 0h1v1h-1zM6 0h1v1h-1zM1 1h7v1h-7zM0 2h3v1h-3zM6 2h3v1h-3zM1 3h1v1h-1zM7 3h1v1h-1zM0 4h3v1h-3zM6 4h3v1h-3zM1 5h7v1h-7zM2 6h1v1h-1zM4 6h1v1h-1zM6 6h1v1h-1z" fill="currentColor"/></symbol><symbol id="i-plus" viewBox="0 0 7 7"><path d="M2 0h3v1h-3zM2 1h3v1h-3zM0 2h7v1h-7zM0 3h7v1h-7zM0 4h7v1h-7zM2 5h3v1h-3zM2 6h3v1h-3z" fill="currentColor"/></symbol><symbol id="i-camera" viewBox="0 0 12 8"><path d="M3 0h5v1h-5zM0 1h12v1h-12zM0 2h1v1h-1zM11 2h1v1h-1zM0 3h1v1h-1zM4 3h4v1h-4zM11 3h1v1h-1zM0 4h1v1h-1zM3 4h1v1h-1zM8 4h1v1h-1zM11 4h1v1h-1zM0 5h1v1h-1zM3 5h1v1h-1zM8 5h1v1h-1zM11 5h1v1h-1zM0 6h1v1h-1zM4 6h4v1h-4zM11 6h1v1h-1zM0 7h12v1h-12z" fill="currentColor"/></symbol><symbol id="i-heart" viewBox="0 0 9 8"><path d="M1 0h2v1h-2zM6 0h2v1h-2zM0 1h4v1h-4zM5 1h4v1h-4zM0 2h9v1h-9zM0 3h9v1h-9zM1 4h7v1h-7zM2 5h5v1h-5zM3 6h3v1h-3zM4 7h1v1h-1z" fill="currentColor"/></symbol></defs></svg>
+
+<div class="sky" aria-hidden="true">
+  <div class="stars"></div>
+  <span class="missile" style="--x:8%;  --d:7s;   --t:0s"></span>
+  <span class="missile" style="--x:24%; --d:9s;   --t:2.5s; --r:-10deg"></span>
+  <span class="missile" style="--x:41%; --d:6.5s; --t:4s"></span>
+  <span class="missile" style="--x:58%; --d:8s;   --t:1s;   --r:-16deg"></span>
+  <span class="missile" style="--x:74%; --d:10s;  --t:3.5s"></span>
+  <span class="missile" style="--x:90%; --d:7.5s; --t:5.5s; --r:-12deg"></span>
+  <span class="drift red"   style="top:12%; left:6%;   --s:84px; --dx:50px; --dy:40px"  ><svg class="i" aria-hidden="true"><use href="#i-asteroid"/></svg></span>
+  <span class="drift blue"  style="top:62%; right:7%;  --s:110px; --dx:-40px; --dy:-30px; --d:30s"><svg class="i" aria-hidden="true"><use href="#i-asteroid"/></svg></span>
+  <span class="drift green" style="top:40%; left:46%;  --s:56px; --dx:30px; --dy:-60px; --d:20s"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span>
+  <span class="drift red"   style="bottom:10%; left:12%; --s:76px; --dx:70px; --dy:-20px; --d:26s"><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg></span>
+  <span class="drift blue"  style="top:8%; right:16%; --s:60px; --dx:-60px; --dy:30px; --d:22s"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg></span>
+</div>
+
+<div class="progress" id="progress"></div>
+
+<main class="deck" id="deck">
+
+  <!-- 1. Capa -->
+  <section class="slide cover active">
+    <h1>Missile Command</h1>
+    <div class="subtitle">Remake do jogo</div>
+    <div class="hero-art"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg><svg class="i" aria-hidden="true"><use href="#i-missile"/></svg><svg class="i" aria-hidden="true"><use href="#i-city"/></svg><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg><svg class="i" aria-hidden="true"><use href="#i-asteroid"/></svg><svg class="i" aria-hidden="true"><use href="#i-missile"/></svg><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg></div>
+    <div class="grid cols-2" style="margin-top:18px;">
+      <div class="box">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-gamepad"/></svg>Principais informações</h3>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg></span><p>Original: Shoot 'em Up<br>Remake: Shooter Survivor</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-joystick"/></svg></span><p>Plataforma: PC / Web</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-people"/></svg></span><p>Ivan Lopes da Silva<br>Matheus Thiago Lima Assad</p></div>
+      </div>
+      <div class="box red credits">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-person"/></svg>Apresentado por</h3>
+        <div class="placeholder red" style="min-height:150px;"><svg class="i" aria-hidden="true"><use href="#i-camera"/></svg><span>[Fotos da equipe]</span></div>
+        <p style="margin-top:12px;">Turma: [Sua Turma]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Equipe -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-people"/></svg><h2>A Equipe</h2><svg class="i" aria-hidden="true"><use href="#i-people"/></svg></div>
+    <div class="subtitle">Conheça os integrantes do projeto</div>
+    <div class="grid cols-5">
+      <div class="box member"><div class="placeholder"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg><span>[Foto]</span></div><h3>Matheus</h3><div class="role"><svg class="i" aria-hidden="true"><use href="#i-joystick"/></svg>Game Design</div></div>
+      <div class="box member red"><div class="placeholder red"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg><span>[Foto]</span></div><h3>Matheus</h3><div class="role"><svg class="i" aria-hidden="true"><use href="#i-brush"/></svg>Arte</div></div>
+      <div class="box member blue"><div class="placeholder green"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg><span>[Foto]</span></div><h3>Ivan</h3><div class="role"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>Programação</div></div>
+      <div class="box member"><div class="placeholder"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg><span>[Foto]</span></div><h3>Ivan</h3><div class="role"><svg class="i" aria-hidden="true"><use href="#i-wireframe"/></svg>UX/UI</div></div>
+      <div class="box member red"><div class="placeholder red"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg><span>[Foto]</span></div><h3>Ivan</h3><div class="role"><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg>Organização / GDD</div></div>
+    </div>
+  </section>
+
+  <!-- 3. Tecnologias -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg><h2>1. Tecnologias e Ferramentas</h2><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg></div>
+    <div class="subtitle">Recursos utilizados no remake</div>
+    <div class="grid cols-3">
+      <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg>Engine</h3><ul><li><svg class="i" aria-hidden="true"><use href="#i-joystick"/></svg>Unity 6 (C#)</li><li><svg class="i" aria-hidden="true"><use href="#i-cursor"/></svg>GitHub Desktop</li><li><svg class="i" aria-hidden="true"><use href="#i-robot"/></svg>GitHub Copilot</li></ul></div>
+      <div class="box red"><h3><svg class="i" aria-hidden="true"><use href="#i-brush"/></svg>Arte</h3><ul><li><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Pixelorama</li><li><svg class="i" aria-hidden="true"><use href="#i-city"/></svg>Pixel art 32x32</li><li><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg>Animator do Unity</li></ul></div>
+      <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg>Slides</h3><ul><li><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Canva</li><li><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Google Slides</li></ul></div>
+      <div class="box red"><h3><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg>Organização</h3><ul><li><svg class="i" aria-hidden="true"><use href="#i-cursor"/></svg>GitHub Desktop</li><li><svg class="i" aria-hidden="true"><use href="#i-folder"/></svg>Google Drive</li><li><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>GitHub</li></ul></div>
+      <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-robot"/></svg>Ferramentas de IA</h3><ul><li><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>Claude</li><li><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>GPT</li><li><svg class="i" aria-hidden="true"><use href="#i-robot"/></svg>GitHub Copilot</li></ul></div>
+      <div class="placeholder green"><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg><span>[Logos dos softwares]</span></div>
+    </div>
+  </section>
+
+  <!-- 4. Conceito original -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-joystick"/></svg><h2>2.1 Conceito do Jogo Original</h2><svg class="i" aria-hidden="true"><use href="#i-joystick"/></svg></div>
+    <div class="subtitle">Missile Command · Atari 2600</div>
+    <div class="grid cols-2">
+      <div class="placeholder red big fill"><svg class="i" aria-hidden="true"><use href="#i-missile"/></svg><span>[Imagem do jogo original]</span></div>
+      <div class="stack">
+        <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-question"/></svg>Do que se trata?</h3><p>Uma guerra nuclear pós-apocalíptica.</p></div>
+        <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-book"/></svg>Ideia principal</h3><p>Simulação de uma guerra nuclear apocalíptica, inspirada diretamente no medo e nas tensões da Guerra Fria na década de 1980. O jogador defende suas cidades interceptando mísseis inimigos antes que atinjam o solo.</p></div>
+        <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg>Gênero</h3><p>Shoot 'em Up</p></div>
+        <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-joystick"/></svg>Plataforma</h3><p>Atari 2600</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Conceito remake -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg><h2>2.2 Conceito do Remake</h2><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg></div>
+    <div class="subtitle">Missile Command Remake</div>
+    <div class="grid cols-2">
+      <div class="placeholder red big fill"><svg class="i" aria-hidden="true"><use href="#i-city"/></svg><span>[Imagem do remake]</span></div>
+      <div class="stack">
+        <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-question"/></svg>Do que se trata?</h3><p>Uma guerra nuclear pós-apocalíptica.</p></div>
+        <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-chat"/></svg>Ideia principal</h3><p>Mantém a mesma premissa do original, a simulação de uma guerra nuclear inspirada nas tensões da Guerra Fria, agora com cidades representadas como bases militares em pixel art e uma abordagem de sobrevivência.</p></div>
+        <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg>Gênero</h3><p>Shooter Survivor</p></div>
+        <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-gamepad"/></svg>Plataforma</h3><p>PC / Web</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PMA -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg><h2>2.3 Quadro PMA</h2><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg></div>
+    <div class="subtitle">Preservamos · Modificamos · Adicionamos</div>
+    <div class="grid cols-3">
+      <div class="box">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-shield"/></svg>Preservamos</h3>
+        <p class="muted">Elementos essenciais mantidos</p>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-city"/></svg>Defesa das cidades contra mísseis</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-search"/></svg>Mira e disparo de interceptadores</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-missile"/></svg>Tema de guerra nuclear da Guerra Fria</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg>Pontuação e recordes</li>
+        </ul>
+      </div>
+      <div class="box blue">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg>Modificamos</h3>
+        <p class="muted">Elementos alterados ou reimaginados</p>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-brush"/></svg>Visual em pixel art moderna</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-city"/></svg>Cidades como bases militares</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-asteroid"/></svg>Animação de destruição em 6 frames</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg>De Atari para PC/Web</li>
+        </ul>
+      </div>
+      <div class="box red">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-plus"/></svg>Adicionamos</h3>
+        <p class="muted">Novos elementos propostos pela equipe</p>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg>Estrutura de Shooter Survivor</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-wireframe"/></svg>Menu inicial ilustrado</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-question"/></svg>Tutorial simples</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg>Dificuldade progressiva</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Personas -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-person"/></svg><h2>3. Personas (Público-alvo)</h2><svg class="i" aria-hidden="true"><use href="#i-person"/></svg></div>
+    <div class="subtitle">Um jogador nostálgico e um novo jogador</div>
+    <div class="grid cols-2">
+      <div class="box">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg>Persona 1: Jogador nostálgico</h3>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-person"/></svg></span><p><b>Nome e idade:</b> Luiz Adriano, 45 anos</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-gamepad"/></svg></span><p><b>Relação com videogames:</b> gosta de jogos clássicos de arcade e recorda os desafios da época.</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg></span><p><b>Procura:</b> desafios, reflexos rápidos e recordes.</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg></span><p><b>Frustrações:</b> controles ruins e mudanças que descaracterizem o original.</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span><p><b>Espera do remake:</b> manter a essência clássica com gráficos e sons renovados.</p></div>
+      </div>
+      <div class="box blue">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg>Persona 2: Novo jogador</h3>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-person"/></svg></span><p><b>Nome e idade:</b> Camila, 19 anos</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-gamepad"/></svg></span><p><b>Relação com videogames:</b> joga no celular e no PC, preferindo jogos de ação.</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg></span><p><b>Procura:</b> diversão rápida, objetivos claros e controles simples.</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg></span><p><b>Frustrações:</b> regras confusas e dificuldade excessiva.</p></div>
+        <div class="row"><span class="ico"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg></span><p><b>Espera do remake:</b> visual moderno, tutorial simples e desafios progressivos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Artes 4.1 -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-brush"/></svg><h2>4.1 Artes · Identidade Visual</h2><svg class="i" aria-hidden="true"><use href="#i-brush"/></svg></div>
+    <div class="subtitle">Mood board e referências</div>
+    <div class="grid cols-2">
+      <div class="box">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Referências</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-missile"/></svg>Referência 1: Missile Command (Atari)</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg>Referência 2: Space Invaders</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-gamepad"/></svg>Referência 3: [Nome do jogo]</li>
+        </ul>
+        <h3 style="margin-top:22px;"><svg class="i" aria-hidden="true"><use href="#i-brush"/></svg>Cores principais</h3>
+        <p>Paleta análoga com base em azul-acinzentado (#7AB7CC) sobre fundo escuro.</p>
+        <div class="swatches">
+          <div class="swatch" style="background:#7ab7cc;">#7AB7CC</div>
+          <div class="swatch" style="background:#4a8aa3;">#4A8AA3</div>
+          <div class="swatch" style="background:#a9d6e6;">#A9D6E6</div>
+          <div class="swatch" style="background:#b4f23c;">#B4F23C</div>
+          <div class="swatch" style="background:#ef3b3b;">#EF3B3B</div>
+        </div>
+      </div>
+      <div class="placeholder big fill"><svg class="i" aria-hidden="true"><use href="#i-brush"/></svg><span>[Print do mood board / paleta]</span></div>
+    </div>
+  </section>
+
+  <!-- 9. Artes 4.2 -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-city"/></svg><h2>4.2 Artes · In Game e Interface</h2><svg class="i" aria-hidden="true"><use href="#i-city"/></svg></div>
+    <div class="subtitle">Sprites, cenário e UI</div>
+    <div class="grid cols-3">
+      <div class="box red"><h3><svg class="i" aria-hidden="true"><use href="#i-city"/></svg>Cidade / base (32x32)</h3><div class="placeholder red"><svg class="i" aria-hidden="true"><use href="#i-city"/></svg><span>[Cidade intacta → flash → escombros<br>6 frames · 6 FPS]</span></div></div>
+      <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-missile"/></svg>Inimigos</h3><div class="placeholder green"><svg class="i" aria-hidden="true"><use href="#i-missile"/></svg><span>[Mísseis inimigos]</span></div></div>
+      <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-asteroid"/></svg>Elementos de cenário</h3><div class="placeholder"><svg class="i" aria-hidden="true"><use href="#i-asteroid"/></svg><span>[Terreno]</span></div></div>
+      <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-star"/></svg>Imagens de fundo</h3><div class="placeholder"><svg class="i" aria-hidden="true"><use href="#i-star"/></svg><span>[Fundo do cenário]</span></div></div>
+      <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg>Telas de menu</h3><div class="placeholder green"><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg><span>[Menu inicial]</span></div></div>
+      <div class="box red"><h3><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg>Telas in game</h3><div class="placeholder red"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg><span>[HUD: pontuação e informações]</span></div></div>
+    </div>
+  </section>
+
+  <!-- 10. Wireframe -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-wireframe"/></svg><h2>5.1 Mecânicas e Fluxo · Wireframe</h2><svg class="i" aria-hidden="true"><use href="#i-wireframe"/></svg></div>
+    <div class="subtitle">Produzido em Fundamentos de UX/UI</div>
+    <div class="placeholder big fill"><svg class="i" aria-hidden="true"><use href="#i-wireframe"/></svg><span>[Wireframe]</span></div>
+  </section>
+
+  <!-- 11. Figma -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-cursor"/></svg><h2>5.2 Mecânicas e Fluxo · Protótipo Figma</h2><svg class="i" aria-hidden="true"><use href="#i-cursor"/></svg></div>
+    <div class="subtitle">Navegação entre telas</div>
+    <div class="placeholder big red fill"><svg class="i" aria-hidden="true"><use href="#i-cursor"/></svg><span>[Protótipo do Figma]</span></div>
+  </section>
+
+  <!-- 12. Gameplay -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-gamepad"/></svg><h2>5.3 Mecânicas e Fluxo · O Gameplay</h2><svg class="i" aria-hidden="true"><use href="#i-gamepad"/></svg></div>
+    <div class="subtitle">Ações · Objetivo · Desafios</div>
+    <div class="grid cols-3">
+      <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-cursor"/></svg>Ações</h3><p>O jogador mira com o mouse e clica para disparar interceptadores contra os mísseis que descem do céu.</p></div>
+      <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg>Objetivo</h3><p>Proteger as bases pelo maior tempo possível, somando pontos a cada míssil destruído e buscando bater recordes.</p></div>
+      <div class="box red"><h3><svg class="i" aria-hidden="true"><use href="#i-missile"/></svg>Desafios</h3><p>Ondas de mísseis cada vez mais rápidas e numerosas, munição limitada e bases que podem ser destruídas.</p></div>
+    </div>
+  </section>
+
+  <!-- 13. Código -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-code"/></svg><h2>6. Explicação de uma parte do Código</h2><svg class="i" aria-hidden="true"><use href="#i-code"/></svg></div>
+    <div class="subtitle">Lógica do script · Destruição da cidade</div>
+    <div class="grid cols-2">
+      <pre><span class="c">// Exemplo: substitua pelo trecho real do projeto</span>
+<span class="k">public class</span> Cidade : MonoBehaviour
+{
+    <span class="k">private</span> Animator animator;
+
+    <span class="k">void</span> Awake()
+    {
+        animator = GetComponent&lt;Animator&gt;();
+    }
+
+    <span class="k">public void</span> Destruir()
+    {
+        animator.SetTrigger(<span class="k">"Destruir"</span>);
+    }
+}</pre>
+      <div class="stack">
+        <div class="box"><h3><svg class="i" aria-hidden="true"><use href="#i-code"/></svg>Função</h3><p>Destruir() – aciona a animação de destruição da cidade.</p></div>
+        <div class="box blue"><h3><svg class="i" aria-hidden="true"><use href="#i-gear"/></svg>Variáveis</h3><p>animator – controla os estados da cidade no Animator do Unity.</p></div>
+        <div class="box red"><h3><svg class="i" aria-hidden="true"><use href="#i-city"/></svg>Resultado</h3><p>A cidade passa de intacta para flash e escombros (6 frames, 6 FPS) quando é atingida.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. Gameplay vídeo -->
+  <section class="slide">
+    <div class="title-row"><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg><h2>7. Gameplay em Ação</h2><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg></div>
+    <div class="subtitle">Demonstração do jogo</div>
+    <div class="grid cols-2">
+      <div class="placeholder big red fill"><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg><span>[Vídeo do jogo funcionando]</span></div>
+      <div class="box">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-monitor"/></svg>O vídeo mostra</h3>
+        <ul>
+          <li><svg class="i" aria-hidden="true"><use href="#i-gamepad"/></svg>Início e menu do jogo</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-cursor"/></svg>Mecânica principal</li>
+          <li><svg class="i" aria-hidden="true"><use href="#i-trophy"/></svg>Tela de Game Over / Vitória</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. Agradecimento -->
+  <section class="slide cover">
+    <h1>Obrigado!</h1>
+    <div class="subtitle">Muito obrigado pela sua atenção</div>
+    <div class="hero-art"><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg><svg class="i" aria-hidden="true"><use href="#i-star"/></svg><svg class="i" aria-hidden="true"><use href="#i-rocket"/></svg><svg class="i" aria-hidden="true"><use href="#i-invader"/></svg><svg class="i" aria-hidden="true"><use href="#i-heart"/></svg></div>
+    <div class="grid cols-2" style="margin-top:18px;">
+      <div class="box credits">
+        <h3><svg class="i" aria-hidden="true"><use href="#i-people"/></svg>Equipe</h3>
+        <p><strong>Ivan Lopes da Silva</strong></p>
+        <p><strong>Matheus Thiago Lima Assad</strong></p>
+        <p>Jogo: Missile Command Remake</p>
+      </div>
+      <div class="placeholder red"><svg class="i" aria-hidden="true"><use href="#i-search"/></svg><span>[QR code do itch.io]</span></div>
+    </div>
+  </section>
+
+</main>
+
+<nav class="controls">
+  <button id="prev" aria-label="Slide anterior">◀</button>
+  <span id="counter">1 / 15</span>
+  <button id="next" aria-label="Próximo slide">▶</button>
+</nav>
+
+<script>
+  const slides = [...document.querySelectorAll(".slide")];
+  const counter = document.getElementById("counter");
+  const bar = document.getElementById("progress");
+  let i = 0;
+  function show(n) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    slides.forEach((s, k) => s.classList.toggle("active", k === i));
+    counter.textContent = (i + 1) + " / " + slides.length;
+    bar.style.width = ((i + 1) / slides.length * 100) + "%";
+    history.replaceState(null, "", "#" + (i + 1));
+  }
+  document.getElementById("prev").onclick = () => show(i - 1);
+  document.getElementById("next").onclick = () => show(i + 1);
+  document.addEventListener("keydown", e => {
+    if (["ArrowRight", "PageDown", " "].includes(e.key)) show(i + 1);
+    if (["ArrowLeft", "PageUp"].includes(e.key)) show(i - 1);
+  });
+  show((parseInt(location.hash.slice(1)) || 1) - 1);
+</script>
+</body>
+</html>
