@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missile Command – Remake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="sky"></canvas>
+<div class="progress" id="progress"></div>
+
+<header class="hud">
+  <div><b>1UP</b> <span class="val" id="score">001500</span></div>
+  <div class="mid">★ MISSILE COMMAND REMAKE ★</div>
+  <div><b>HI</b> <span class="val">999999</span> &nbsp; <span class="blink">CREDIT 01</span></div>
+</header>
+
+<main class="deck" id="deck">
+
+  <!-- 1. Capa -->
+  <section class="slide cover active">
+    <h1 class="glitch" data-text="Missile Command">Missile Command</h1>
+    <div class="subtitle"><i class="ico" data-icon="star"></i>Remake do jogo<i class="ico" data-icon="star"></i></div>
+    <div class="radar" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="grid cols-2">
+      <div class="box">
+        <h3><i class="ico" data-icon="gamepad"></i>Principais informações</h3>
+        <ul>
+          <li>Gênero original: Shoot 'em Up</li>
+          <li>Gênero do remake: Shooter Survivor</li>
+          <li>Plataforma: PC / Web</li>
+          <li>Engine: Unity 6</li>
+        </ul>
+      </div>
+      <div class="box red credits">
+        <h3><i class="ico" data-icon="crown"></i>Apresentado por</h3>
+        <div class="presenters-grid">
+          <div class="presenter-card">
+            <div class="presenter-img-wrap">
+              <img src="ivan_pixel.png" alt="Ivan Pixel Art" class="presenter-img" onerror="this.onerror=null; if(!this.src.endsWith('.jpg')){ this.src='ivan_pixel.jpg'; } else { this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex'; }">
+              <div class="placeholder red mini presenter-ph" style="display:none;"><i class="ico" data-icon="crown"></i><span>[Ivan]</span></div>
+            </div>
+            <p><strong>Ivan Lopes da Silva</strong></p>
+          </div>
+          <div class="presenter-card">
+            <div class="presenter-img-wrap">
+              <img src="matheus_pixel.png" alt="Matheus Pixel Art" class="presenter-img" onerror="this.onerror=null; if(!this.src.endsWith('.jpg')){ this.src='matheus_pixel.jpg'; } else { this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex'; }">
+              <div class="placeholder blue mini presenter-ph" style="display:none;"><i class="ico" data-icon="crown"></i><span>[Matheus]</span></div>
+            </div>
+            <p><strong>Matheus Thiago Lima Assad</strong></p>
+          </div>
+        </div>
+        <p class="turma-tag">Turma: <strong>T TPGD V2</strong></p>
+      </div>
+    </div>
+    <div class="insert-coin blink">▶ INSERT COIN ◀</div>
+    <div class="skyline" data-city></div>
+  </section>
+
+  <!-- 2. Equipe -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="crown"></i>A Equipe</h2>
+    <div class="subtitle"><i class="ico" data-icon="heart"></i>Conheça os integrantes do projeto</div>
+    <div class="grid cols-5">
+      <div class="box member">
+        <div class="avatar">
+          <i class="ico" data-icon="cat"></i>
+        </div>
+        <h3>Matheus</h3>
+        <p>Game Design</p>
+      </div>
+      <div class="box member">
+        <div class="avatar">
+          <i class="ico" data-icon="ghost"></i>
+        </div>
+        <h3>Matheus</h3>
+        <p>Arte</p>
+      </div>
+      <div class="box member">
+        <div class="avatar">
+          <i class="ico" data-icon="bolt"></i>
+        </div>
+        <h3>Ivan</h3>
+        <p>Programação</p>
+      </div>
+      <div class="box member">
+        <div class="avatar">
+          <i class="ico" data-icon="pizza"></i>
+        </div>
+        <h3>Ivan</h3>
+        <p>UX/UI</p>
+      </div>
+      <div class="box member">
+        <div class="avatar">
+          <i class="ico" data-icon="coffee"></i>
+        </div>
+        <h3>Ivan</h3>
+        <p>Organização / GDD</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Tecnologias -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="rocket"></i>Tecnologias e Ferramentas</h2>
+    <div class="subtitle"><i class="ico" data-icon="bolt"></i>Recursos utilizados no remake</div>
+    <div class="grid cols-3">
+      <div class="box">
+        <h3><i class="ico" data-icon="planet"></i>Engine</h3>
+        <ul>
+          <li>Unity 6 (C#)</li>
+          <li>GitHub Desktop</li>
+          <li>GitHub Copilot</li>
+        </ul>
+      </div>
+      <div class="box red">
+        <h3><i class="ico" data-icon="ghost"></i>Arte</h3>
+        <ul>
+          <li>Aseprite</li>
+          <li>Libresprite</li>
+        </ul>
+      </div>
+      <div class="box blue">
+        <h3><i class="ico" data-icon="star"></i>Slides</h3>
+        <ul>
+          <li>Feito no VS Code com HTML, CSS e JS</li>
+        </ul>
+      </div>
+      <div class="box red">
+        <h3><i class="ico" data-icon="coffee"></i>Organização</h3>
+        <ul>
+          <li>GitHub Desktop</li>
+          <li>Google Drive</li>
+          <li>GitHub</li>
+        </ul>
+      </div>
+      <div class="box blue">
+        <h3><i class="ico" data-icon="skull"></i>Ferramentas de IA</h3>
+        <ul>
+          <li>Claude</li>
+          <li>GPT</li>
+          <li>GitHub Copilot</li>
+        </ul>
+      </div>
+      <div class="box green tech-logos-container">
+        <h3><i class="ico" data-icon="gem"></i>Softwares</h3>
+        <div class="tech-grid">
+          <span class="tech-badge">Unity 6</span>
+          <span class="tech-badge">C#</span>
+          <span class="tech-badge">Aseprite</span>
+          <span class="tech-badge">Libresprite</span>
+          <span class="tech-badge">VS Code</span>
+          <span class="tech-badge">HTML5</span>
+          <span class="tech-badge">CSS3</span>
+          <span class="tech-badge">JS</span>
+          <span class="tech-badge">GitHub</span>
+          <span class="tech-badge">Claude AI</span>
+          <span class="tech-badge">ChatGPT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Conceito original -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="skull"></i>Conceito do Jogo Original</h2>
+    <div class="subtitle"><i class="ico" data-icon="gamepad"></i>Missile Command · Atari 2600</div>
+    <div class="grid cols-2">
+      <div class="img-box red">
+        <img src="original.png" alt="" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder red big" style="display:none;"><i class="ico xl" data-icon="gamepad"></i><span>[original.png]</span></div>
+      </div>
+      <div class="stack">
+        <div class="box"><h3><i class="ico" data-icon="planet"></i>Do que se trata?</h3><p>Uma guerra nuclear pós-apocalíptica.</p></div>
+        <div class="box blue"><h3><i class="ico" data-icon="bolt"></i>Ideia principal</h3><p>Simulação de uma guerra nuclear apocalíptica, inspirada diretamente no medo e nas tensões da Guerra Fria na década de 1980. O jogador defende suas cidades interceptando mísseis inimigos antes que atinjam o solo.</p></div>
+        <div class="box"><h3><i class="ico" data-icon="ghost"></i>Gênero</h3><p>Shoot 'em Up</p></div>
+        <div class="box blue"><h3><i class="ico" data-icon="coffee"></i>Plataforma</h3><p>Atari 2600</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Conceito remake -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="gem"></i>Conceito do Remake</h2>
+    <div class="subtitle"><i class="ico" data-icon="rocket"></i>Missile Command Remake</div>
+    <div class="grid cols-2">
+      <div class="img-box cyan">
+        <img src="remake.png" alt="" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder cyan big" style="display:none;"><i class="ico xl" data-icon="rocket"></i><span>[remake.png]</span></div>
+      </div>
+      <div class="stack">
+        <div class="box"><h3><i class="ico" data-icon="planet"></i>Do que se trata?</h3><p>Uma guerra nuclear pós-apocalíptica.</p></div>
+        <div class="box blue"><h3><i class="ico" data-icon="bolt"></i>Ideia principal</h3><p>Mantém a mesma premissa do original, a simulação de uma guerra nuclear inspirada nas tensões da Guerra Fria, agora com cidades representadas como bases militares em pixel art e uma abordagem de sobrevivência.</p></div>
+        <div class="box"><h3><i class="ico" data-icon="ghost"></i>Gênero</h3><p>Shooter Survivor</p></div>
+        <div class="box blue"><h3><i class="ico" data-icon="coffee"></i>Plataforma</h3><p>PC / Web</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. PMA -->
+  <section class="slide pma">
+    <h2><i class="ico badge" data-icon="pizza"></i>Quadro PMA</h2>
+    <div class="subtitle"><i class="ico" data-icon="star"></i>Preservamos · Modificamos · Adicionamos</div>
+    <div class="grid cols-3">
+      <div class="box">
+        <h3><i class="ico" data-icon="heart"></i>Preservamos</h3>
+        <p style="opacity:.7; margin-bottom:8px;">Elementos essenciais mantidos</p>
+        <ul>
+          <li>Defesa das cidades contra mísseis</li>
+          <li>Mira e disparo de interceptadores</li>
+          <li>Tema de guerra nuclear da Guerra Fria</li>
+          <li>Pontuação e recordes</li>
+        </ul>
+      </div>
+      <div class="box blue">
+        <h3><i class="ico" data-icon="bolt"></i>Modificamos</h3>
+        <p style="opacity:.7; margin-bottom:8px;">Elementos alterados ou reimaginados</p>
+        <ul>
+          <li>Visual em pixel art moderna</li>
+          <li>Cidades como bases militares</li>
+          <li>Animação de destruição em 6 frames</li>
+          <li>Plataforma: de Atari para PC/Web</li>
+        </ul>
+      </div>
+      <div class="box red">
+        <h3><i class="ico" data-icon="gem"></i>Adicionamos</h3>
+        <p style="opacity:.7; margin-bottom:8px;">Novos elementos propostos pela equipe</p>
+        <ul>
+          <li>Estrutura de Shooter Survivor</li>
+          <li>Menu inicial ilustrado</li>
+          <li>Dificuldade progressiva</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Personas -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="cat"></i>Personas (Público-alvo)</h2>
+    <div class="subtitle"><i class="ico" data-icon="heart"></i>Um jogador nostálgico e um novo jogador</div>
+    <div class="grid cols-2">
+      <div class="box">
+        <h3><i class="ico" data-icon="crown"></i>Persona 1: Jogador nostálgico</h3>
+        <ul>
+          <li><strong>Nome e idade:</strong> Luiz Adriano, 45 anos</li>
+          <li><strong>Relação com videogames:</strong> gosta de jogos clássicos de arcade e recorda os desafios da época.</li>
+          <li><strong>Procura:</strong> desafios, reflexos rápidos e recordes.</li>
+          <li><strong>Frustrações:</strong> controles ruins e mudanças que descaracterizem o original.</li>
+          <li><strong>Espera do remake:</strong> manter a essência clássica com gráficos e sons renovados.</li>
+        </ul>
+      </div>
+      <div class="box blue">
+        <h3><i class="ico" data-icon="rocket"></i>Persona 2: Novo jogador</h3>
+        <ul>
+          <li><strong>Nome e idade:</strong> Camila, 19 anos</li>
+          <li><strong>Relação com videogames:</strong> joga no celular e no PC, preferindo jogos de ação.</li>
+          <li><strong>Procura:</strong> diversão rápida, objetivos claros e controles simples.</li>
+          <li><strong>Frustrações:</strong> regras confusas e dificuldade excessiva.</li>
+          <li><strong>Espera do remake:</strong> visual moderno, tutorial simples e desafios progressivos.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. Artes -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="heart"></i>Artes · Identidade Visual</h2>
+    <div class="subtitle"><i class="ico" data-icon="gem"></i>Mood board e referências</div>
+    <div class="grid cols-2">
+      <div class="box">
+        <h3><i class="ico" data-icon="gamepad"></i>Referências</h3>
+        <ul>
+          <li>Referência 1: Missile Command (Atari)</li>
+          <li>Referência 2: Space Invaders</li>
+          <li>Referência 3: Defender / Asteroids</li>
+        </ul>
+        <h3 style="margin-top:20px;"><i class="ico" data-icon="star"></i>Cores principais (Paleta BSC)</h3>
+        <p>Paleta análoga com tom base azul-acinzentado (#7AB7CC) e acentos neons.</p>
+        <div class="swatches">
+          <div class="swatch" style="background:#7ab7cc;">#7AB7CC</div>
+          <div class="swatch" style="background:#4a8aa3;">#4A8AA3</div>
+          <div class="swatch" style="background:#a9d6e6;">#A9D6E6</div>
+          <div class="swatch" style="background:#b4f23c;">#B4F23C</div>
+          <div class="swatch" style="background:#ef3b3b;">#EF3B3B</div>
+          <div class="swatch" style="background:#13dbe3;">#13DBE3</div>
+        </div>
+      </div>
+      <div class="img-box cyan">
+        <img src="moodboard.png" alt="" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder cyan big" style="display:none;"><div class="mosaic" data-mosaic></div><span>[moodboard.png]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. Artes In Game -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="ghost"></i>Artes · In Game e Interface</h2>
+    <div class="subtitle"><i class="ico" data-icon="skull"></i>Sprites, cenário e UI</div>
+    <div class="grid cols-3">
+      <div class="box red">
+        <h3><i class="ico" data-icon="crown"></i>Cidade / base</h3>
+        <img src="sprite_cidade.png" alt="" class="mini-img" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder red mini" style="display:none;"><i class="ico xl" data-icon="crown"></i><span>[Cidade]</span></div>
+      </div>
+      <div class="box green">
+        <h3><i class="ico" data-icon="skull"></i>Inimigos</h3>
+        <img src="sprite_inimigos.png" alt="" class="mini-img" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder green mini" style="display:none;"><i class="ico xl" data-icon="skull"></i><span>[Inimigos]</span></div>
+      </div>
+      <div class="box blue">
+        <h3><i class="ico" data-icon="planet"></i>Cenário</h3>
+        <img src="sprite_cenario.png" alt="" class="mini-img" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder blue mini" style="display:none;"><i class="ico xl" data-icon="planet"></i><span>[Cenário]</span></div>
+      </div>
+      <div class="box blue">
+        <h3><i class="ico" data-icon="star"></i>Imagens de fundo</h3>
+        <img src="fundo.png" alt="" class="mini-img" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder blue mini" style="display:none;"><i class="ico xl" data-icon="star"></i><span>[Fundo]</span></div>
+      </div>
+      <div class="box green">
+        <h3><i class="ico" data-icon="gamepad"></i>Telas de menu</h3>
+        <img src="menu.png" alt="" class="mini-img" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder green mini" style="display:none;"><i class="ico xl" data-icon="gamepad"></i><span>[Menu]</span></div>
+      </div>
+      <div class="box red">
+        <h3><i class="ico" data-icon="heart"></i>Telas in game</h3>
+        <img src="hud_ingame.png" alt="" class="mini-img" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+        <div class="placeholder red mini" style="display:none;"><i class="ico xl" data-icon="heart"></i><span>[HUD]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. Wireframe -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="cat"></i>Mecânicas e Fluxo · Wireframe</h2>
+    <div class="subtitle"><i class="ico" data-icon="pizza"></i>Produzido em Fundamentos de UX/UI</div>
+    <div class="img-box fill cyan">
+      <img src="wireframe.png" alt="" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+      <div class="placeholder big fill cyan" style="display:none;"><div class="wire"><div></div><div></div><div></div><div></div><div></div></div><span>[wireframe.png]</span></div>
+    </div>
+  </section>
+
+  <!-- 11. Figma -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="gem"></i>Mecânicas e Fluxo · Protótipo Figma</h2>
+    <div class="subtitle"><i class="ico" data-icon="coffee"></i>Navegação entre telas</div>
+    <div class="img-box red fill">
+      <img src="figma.png" alt="" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+      <div class="placeholder big red fill" style="display:none;"><i class="ico xl" data-icon="gem"></i><span>[figma.png]</span></div>
+    </div>
+  </section>
+
+  <!-- 12. Gameplay -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="bolt"></i>Mecânicas e Fluxo · O Gameplay</h2>
+    <div class="subtitle"><i class="ico" data-icon="heart"></i>Ações · Objetivo · Desafios</div>
+    <div class="grid cols-3">
+      <div class="box"><h3><i class="ico" data-icon="cat"></i>Ações</h3><p>O jogador mira com o mouse e clica para disparar interceptadores contra os mísseis que descem do céu.</p></div>
+      <div class="box blue"><h3><i class="ico" data-icon="crown"></i>Objetivo</h3><p>Proteger as bases pelo maior tempo possível, somando pontos a cada míssil destruído e buscando bater recordes.</p></div>
+      <div class="box red"><h3><i class="ico" data-icon="skull"></i>Desafios</h3><p>Ondas de mísseis cada vez mais rápidas e numerosas, munição limitada e bases que podem ser destruídas.</p></div>
+    </div>
+  </section>
+
+  <!-- 13. Código -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="coffee"></i>Explicação de uma parte do Código</h2>
+    <div class="subtitle"><i class="ico" data-icon="bolt"></i>Lógica do script · Destruição da cidade</div>
+    <div class="grid cols-2">
+      <div class="code-container">
+        <div class="code-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-title">Cidade.cs (Unity Script)</span>
+        </div>
+        <pre class="code-block"><code><span class="comment">// Script da Cidade (Cidade.cs)</span>
+<span class="keyword">public class</span> <span class="class-name">Cidade</span> : <span class="type">MonoBehaviour</span>
+{
+    <span class="keyword">private</span> <span class="type">Animator</span> animator;
+
+    <span class="keyword">void</span> <span class="function">Awake</span>()
+    {
+        animator = GetComponent&lt;<span class="type">Animator</span>&gt;();
+    }
+
+    <span class="keyword">public void</span> <span class="function">Destruir</span>()
+    {
+        animator.SetTrigger(<span class="string">"Destruir"</span>);
+    }
+}</code></pre>
+      </div>
+      <div class="stack">
+        <div class="box"><h3><i class="ico" data-icon="bolt"></i>Função</h3><p>Destruir() – aciona a animação de destruição da cidade.</p></div>
+        <div class="box blue"><h3><i class="ico" data-icon="gem"></i>Variáveis</h3><p>animator – controla os estados da cidade no Animator do Unity.</p></div>
+        <div class="box red"><h3><i class="ico" data-icon="skull"></i>Resultado</h3><p>A cidade passa de intacta para flash e escombros (6 frames, 6 FPS) quando é atingida.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14. Gameplay vídeo -->
+  <section class="slide">
+    <h2><i class="ico badge" data-icon="rocket"></i>Gameplay em Ação</h2>
+    <div class="subtitle"><i class="ico" data-icon="gamepad"></i>Demonstração do jogo</div>
+    <div class="grid cols-2">
+      <div class="video-container">
+        <video controls autoplay loop muted poster="gameplay_thumb.png">
+          <source src="gameplay.mp4" type="video/mp4">
+          <div class="placeholder red big"><i class="ico xl" data-icon="gamepad"></i><span>[gameplay.mp4]</span></div>
+        </video>
+      </div>
+      <div class="box">
+        <h3><i class="ico" data-icon="star"></i>O vídeo mostra</h3>
+        <ul>
+          <li>Início e menu do jogo</li>
+          <li>Mecânica principal de interceptação</li>
+          <li>Efeitos de destruição e explosões</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. Agradecimento -->
+  <section class="slide cover">
+    <h1 class="glitch" data-text="Obrigado!">Obrigado!</h1>
+    <div class="subtitle"><i class="ico" data-icon="heart"></i>Muito obrigado pela sua atenção<i class="ico" data-icon="heart"></i></div>
+    
+    <div class="pointing-section">
+      <div class="pointer-char left-char">
+        <div class="char-img-wrap">
+          <img src="ivan_apontando.png" alt="Ivan Apontando" class="char-img" onerror="this.onerror=null; if(!this.src.endsWith('.jpg')){ this.src='ivan_apontando.jpg'; } else { this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex'; }">
+          <div class="placeholder red mini char-ph" style="display:none;"><span>[Ivan]</span></div>
+        </div>
+      </div>
+
+      <div class="qr-center-container">
+        <div class="qr-box-final">
+          <img src="qrcode.png" alt="" class="qr-img" onerror="this.onerror=null; this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';">
+          <div class="placeholder red mini" style="display:none;"><i class="ico xl" data-icon="gem"></i><span>[qrcode.png]</span></div>
+        </div>
+        <p class="qr-label">ESCANEIE E JOGUE NO ITCH.IO</p>
+      </div>
+
+      <div class="pointer-char right-char">
+        <div class="char-img-wrap">
+          <img src="matheus_apontando.png" alt="Matheus Apontando" class="char-img" onerror="this.onerror=null; if(!this.src.endsWith('.jpg')){ this.src='matheus_apontando.jpg'; } else { this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex'; }">
+          <div class="placeholder blue mini char-ph" style="display:none;"><span>[Matheus]</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="final-turma-info">Turma: <strong>T TPGD V2</strong> · Jogo: <strong>Missile Command Remake</strong></div>
+
+    <div class="insert-coin blink">GAME OVER · CONTINUE?</div>
+    <div class="skyline" data-city></div>
+  </section>
+
+</main>
+
+<nav class="controls">
+  <button id="prev" aria-label="Slide anterior">◀</button>
+  <span id="counter">1 / 15</span>
+  <button id="next" aria-label="Próximo slide">▶</button>
+</nav>
+
+<script src="script.js"></script>
+</body>
+</html>
